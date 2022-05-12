@@ -23,7 +23,7 @@ Resources:
         AdmissionFee:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /hello
+            Path: /admission-fee
             Method: get
             RequestParameters:
               - method.request.querystring.numbers:
@@ -35,7 +35,7 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   AdmissionFeeApi:
     Description: "API Gateway endpoint URL for Prod stage for Admission Fee function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/admission-fee/"
   AdmissionFeeFunction:
     Description: "Admission Fee Lambda Function ARN"
     Value: !GetAtt AdmissionFeeFunction.Arn
